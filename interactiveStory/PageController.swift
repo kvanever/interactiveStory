@@ -72,6 +72,21 @@ class PageController: UIViewController {
             storyLabel.topAnchor.constraintEqualToAnchor(view.centerYAnchor, constant: -48.0),
             
             ])
+        
+        view.addSubview(firstChoiceButton)
+        firstChoiceButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activateConstraints([
+            firstChoiceButton.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor),
+            firstChoiceButton.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor, constant: -80.0)
+            ])
+        
+        view.addSubview(secondChoiceButton)
+        secondChoiceButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activateConstraints([
+            secondChoiceButton.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor),
+            secondChoiceButton.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor, constant: -32)
+            ])
+        
     }
     
 
