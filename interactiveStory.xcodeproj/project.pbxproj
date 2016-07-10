@@ -13,6 +13,7 @@
 		CDFA15DF1D32C1CD006EC2E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDFA15DE1D32C1CD006EC2E8 /* Assets.xcassets */; };
 		CDFA15E21D32C1CD006EC2E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDFA15E01D32C1CD006EC2E8 /* LaunchScreen.storyboard */; };
 		CDFA15EA1D32E776006EC2E8 /* InteractiveStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFA15E91D32E776006EC2E8 /* InteractiveStory.swift */; };
+		CDFA15EC1D32F108006EC2E8 /* PageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFA15EB1D32F108006EC2E8 /* PageController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		CDFA15E11D32C1CD006EC2E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CDFA15E31D32C1CD006EC2E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDFA15E91D32E776006EC2E8 /* InteractiveStory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractiveStory.swift; sourceTree = "<group>"; };
+		CDFA15EB1D32F108006EC2E8 /* PageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				CDFA15E91D32E776006EC2E8 /* InteractiveStory.swift */,
+				CDFA15EB1D32F108006EC2E8 /* PageController.swift */,
 				CDFA15D71D32C1CD006EC2E8 /* AppDelegate.swift */,
 				CDFA15D91D32C1CD006EC2E8 /* ViewController.swift */,
 				CDFA15DB1D32C1CD006EC2E8 /* Main.storyboard */,
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDFA15EC1D32F108006EC2E8 /* PageController.swift in Sources */,
 				CDFA15EA1D32E776006EC2E8 /* InteractiveStory.swift in Sources */,
 				CDFA15DA1D32C1CD006EC2E8 /* ViewController.swift in Sources */,
 				CDFA15D81D32C1CD006EC2E8 /* AppDelegate.swift in Sources */,
