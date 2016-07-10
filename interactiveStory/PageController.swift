@@ -24,6 +24,10 @@ class PageController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .blueColor()
+        
+        if let page = page {
+            print(page.story.text)
+        }
 
         // Do any additional setup after loading the view.
     }
