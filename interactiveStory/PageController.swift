@@ -31,6 +31,8 @@ class PageController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = .whiteColor()
+        
         if let page = page {
             artwork.image = page.story.artwork
             let attributedString = NSMutableAttributedString(string: page.story.text)
@@ -44,11 +46,14 @@ class PageController: UIViewController {
             
             if let firstChoice = page.firstChoice {
                 firstChoiceButton.setTitle(firstChoice.title, forState: UIControlState.Normal)
+                firstChoiceButton.addTarget(self, action: #selector(PageController.loadFirstChoice), forControlEvents: .TouchUpInside)
             } else {
                 firstChoiceButton.setTitle("Play Again", forState: UIControlState.Normal)
+                firstChoiceButton.addTarget(self, action: #selector(PageController.playAgain), forControlEvents: .TouchUpInside)
         }
             if let secondChoice = page.secondChoice {
                 secondChoiceButton.setTitle(secondChoice.title, forState: UIControlState.Normal)
+                secondChoiceButton.addTarget(self, action: #selector(PageController.loadSecondChoice), forControlEvents: .TouchUpInside)
             }
         }
 
@@ -98,15 +103,26 @@ class PageController: UIViewController {
         
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func loadFirstChoice() {
+        if let page = page, firstChoice = page.firstChoice {
+            let nextPage = firstChoice.page;
+            let pageController = PageController(page: nextPage)
+            
+            navigationController?.pushViewController(pageController, animated: true)
+        }
     }
-    */
-
+        
+    func loadSecondChoice() {
+        if let page = page, secondChoice = page.secondChoice {
+            let nextPage = secondChoice.page;
+            let pageController = PageController(page: nextPage)
+            
+            navigationController?.pushViewController(pageController, animated: true)
+        }
+    }
+    
+    func playAgain() {
+        navigationController?.popToRootViewControllerAnimated(true)
+    }
+    
 }
