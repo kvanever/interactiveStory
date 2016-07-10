@@ -9,7 +9,13 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    enum Error: ErrorType {
+        case NoName
+    }
 
+    @IBOutlet weak var nameTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -22,8 +28,18 @@ class ViewController: UIViewController {
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "startAdventure" {
-            if let pageController = segue.destinationViewController as? PageController {
-                pageController.page = Adventure.story
+            
+            do {
+                if let name = nameTextField.text {
+                    if name == "" {
+                        throw Error.NoName
+                    }
+                    if let pageController = segue.destinationViewController as? PageController {
+                        pageController.page = Adventure.story(name)
+                    }
+                }
+            } catch {
+            
             }
         }
     }
