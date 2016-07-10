@@ -37,7 +37,7 @@ extension Story {
         case .Rover:
             return "The rover is covered in dust and most of the solar panels are broken. But you are quite surprised to see the on-board system booted up and running. In fact, there is a message on the screen. \"Come to 28.2342, -81.08273\". These coordinates aren't far but you don't know if your oxygen will last there and back."
         case .Cave:
-            return "Your EVA suit is equipped with a headlamp which you use to navigate to a cave. After searching for a while your oxygen levels are starting to get pretty low. You know you should go refill your tank, but there's a faint light up ahead."
+            return "Your EVA suit (is equipped with a headlamp which you use to navigate to a cave. After searching for a while your oxygen levels are starting to get pretty low. You know you should go refill your tank, but there's a faint light up ahead."
         case .Crate:
             return "Unlike everything else around you the crate seems new and...alien. As you examine the create you notice something glinting on the ground beside it. Aha, a key! It must be for the crate..."
         case .Monster:
@@ -48,7 +48,19 @@ extension Story {
             return "You arrive home on Earth. While your mission was a success, you forever wonder what was sending that signal. Perhaps a future mission will be able to investigate."
         }
     }
+}
 
+class Page {
+    let story: Story
+    
+    typealias Choice = (title: String, page: Page)
+    
+    var firstChoice: Choice?
+    var secondChocie: Choice?
+    
+    init(story: Story) {
+        self.story = story
+    }
     
 }
 
