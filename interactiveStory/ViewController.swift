@@ -38,8 +38,14 @@ class ViewController: UIViewController {
                         pageController.page = Adventure.story(name)
                     }
                 }
-            } catch {
-            
+            } catch Error.NoName {
+                let alertController = UIAlertController(title: "Name not provided", message: "Please input your name", preferredStyle: .Alert)
+                let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                alertController.addAction(action)
+                
+                presentViewController(alertController, animated: true, completion: nil)
+            } catch let error {
+                fatalError()
             }
         }
     }
