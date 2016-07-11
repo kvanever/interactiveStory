@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     
     enum Error: ErrorType {
         case NoName
@@ -22,6 +22,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
         
     }
 
@@ -64,6 +65,25 @@ class ViewController: UIViewController {
 
             }
         }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if let userInfoDict = notification.userInfo, keyboardFrameValue = userInfoDict[UIKeyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardFrame = keyboardFrameValue.CGRectValue()
+            
+            UIView.animateWithDuration(0.8) {
+                self.textFieldBottomConstraint.constant = 48
+                self.view.layoutIfNeeded()
+                
+            }
+        }
+    }
+    
+    //Mark - UITextFieldDelegate
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
 
